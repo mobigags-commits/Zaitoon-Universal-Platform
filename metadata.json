@@ -1,0 +1,8 @@
+{
+  "name": "Zaitoon Universal Platform",
+  "description": "Enterprise-level multi-website management, central database, and core API platform connecting existing Vercel sites and future expansions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

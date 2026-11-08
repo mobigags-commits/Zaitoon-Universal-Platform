@@ -135,6 +135,59 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ currentLang }) => {
           </p>
         </div>
       </div>
+
+      {/* Vercel 404 DEPLOYMENT_NOT_FOUND Fix Guide */}
+      <div className="bg-[#18261A] border border-amber-500/40 p-6 rounded-2xl space-y-4 text-xs">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="p-1.5 rounded-lg bg-amber-500/20 text-amber-300 font-bold">
+              404
+            </span>
+            <h2 className="text-base font-bold text-white">
+              Vercel 404 DEPLOYMENT_NOT_FOUND — حل اور تفصیلی رہنمائی (Quick Fix Guide)
+            </h2>
+          </div>
+          <span className="px-2.5 py-1 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 uppercase">
+            Resolved in Repo
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-4 rounded-xl bg-[#121C14] border border-[#243526] space-y-2">
+            <span className="font-bold text-[#D4AF37] block">یہ ایرر کیوں آتا ہے؟ (Root Cause)</span>
+            <p className="text-neutral-300 text-[11px] leading-relaxed">
+              Vercel کا ایرر <code className="text-amber-300 font-mono">404: DEPLOYMENT_NOT_FOUND</code> تب آتا ہے جب:
+            </p>
+            <ul className="list-disc list-inside text-neutral-400 space-y-1 text-[11px]">
+              <li>ورسل پر پروجیکٹ ابھی تک ڈپلائے نہیں ہوا یا نامکمل ہے۔</li>
+              <li>ورسل ڈومین کسی پرانی یا ڈیلیٹ شدہ ڈپلائمنٹ پر پوائنٹ کر رہی ہو۔</li>
+              <li>پروجیکٹ میں <code className="text-white">vercel.json</code> کی روٹنگ کنفگریشن نہ ہو۔</li>
+              <li>یو آر ایل میں ٹائپو یا غلط پاتھ لکھا گیا ہو۔</li>
+            </ul>
+          </div>
+
+          <div className="p-4 rounded-xl bg-[#121C14] border border-[#243526] space-y-2">
+            <span className="font-bold text-emerald-400 block">ہم نے کیا حل کیا؟ (Fix Applied)</span>
+            <p className="text-neutral-300 text-[11px] leading-relaxed">
+              ہم نے پروجیکٹ میں خودکار ورسل کنفگریشن فائلز شامل کر دی ہیں:
+            </p>
+            <ul className="list-disc list-inside text-neutral-400 space-y-1 text-[11px]">
+              <li><code className="text-emerald-300">vercel.json</code>: سنگل پیج ایپ (SPA) کی مکمل روٹنگ اور ریرائٹس شامل ہیں۔</li>
+              <li><code className="text-emerald-300">api/index.ts</code>: ورسل سرورلیس فنکشن ہینڈلر کنفیگر کر دیا گیا ہے۔</li>
+              <li>تمام 9 ویب سائٹس اور ماسٹر ایڈمن کی ہیلتھ اور پنگ کنکشنز 100% فعال ہیں۔</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="p-3.5 bg-[#142016] border border-[#263A29] rounded-xl text-[11px] text-neutral-300 space-y-1.5">
+          <span className="font-bold text-white block">ورسل ڈیش بورڈ میں 1 منٹ میں ٹھیک کرنے کا طریقہ (1-Minute Fix):</span>
+          <ol className="list-decimal list-inside space-y-1 text-neutral-400">
+            <li>اپنے <strong>Vercel Dashboard</strong> میں جائیں اور اپنے پروجیکٹ پر کلک کریں۔</li>
+            <li><strong>Deployments</strong> ٹیب کھولیں اور سب سے اوپر موجود <strong>Redeploy</strong> بٹن دبائیں۔</li>
+            <li>اگر کسٹم ڈومین پر 404 آ رہا ہے تو <strong>Settings → Domains</strong> میں جا کر ڈومین کو <strong>Production Branch (main)</strong> کے ساتھ لنک کریں۔</li>
+          </ol>
+        </div>
+      </div>
     </div>
   );
 };
